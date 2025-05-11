@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TADSTech - The Average Data Scientist</title>
+    <style>
+        :root {
+            --primary: #F1C40F;
+            --secondary: #27AE60;
+            --dark: #2C3E50;
+            --light: #ECF0F1;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Replace with your logo -->
+        <div class="logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="var(--primary)"/>
+                <text x="50" y="60" font-size="40" text-anchor="middle" fill="var(--dark)" font-weight="bold">T</text>
+            </svg>
+        </div>
+        
+        <h1>TADSTech</h1>
+        <p class="subtitle">The Average Data Scientist</p>
+        
+        <p>Data science solutions with clean code and clear visualizations.</p>
+        
+        <div class="buttons">
+            <a href="https://tadstech.com" class="btn btn-primary">Visit Main Website</a>
+            <a href="https://github.com/tadstech/website" class="btn btn-secondary">View Source Code</a>
+        </div>
+    </div>
+</body>
+</html>
