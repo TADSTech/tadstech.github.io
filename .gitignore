@@ -37,3 +37,6 @@ Desktop.ini
 # Typst
 *.typ
 *.sql
+
+# Separate repository projects
+link-tree/
