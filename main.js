@@ -1,250 +1,152 @@
-/* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO | main.js
-   Vertical scroll with theme changes per section
-   ═══════════════════════════════════════════════════════════════ */
-
 import './style.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Chart from 'chart.js/auto';
+import { create, all } from 'mathjs';
 
+const math = create(all);
 gsap.registerPlugin(ScrollTrigger);
 
-// ── Utility ─────────────────────────────────────────────────────
-const isMobile = () => window.innerWidth <= 768;
-
-
-// ════════════════════════════════════════════════════════════════
-// HERO CANVASES
-// ════════════════════════════════════════════════════════════════
-
-// ── Hero 1: Geometric network (Light) ───────────────────────────
-function initLandingHero() {
-  const canvas = document.getElementById('hero-canvas-landing');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let w, h;
-  let particles = [];
-
-  function resize() {
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-  }
-
-  function createParticles() {
-    const count = isMobile() ? 20 : 45;
-    particles = [];
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        r: Math.random() * 2 + 1,
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 140) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(37, 99, 235, ${0.06 * (1 - dist / 140)})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
-    }
-
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(37, 99, 235, 0.12)';
-      ctx.fill();
-
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > w) p.vx *= -1;
-      if (p.y < 0 || p.y > h) p.vy *= -1;
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  resize();
-  createParticles();
-  draw();
-  window.addEventListener('resize', () => { resize(); createParticles(); });
-}
-
-// ── Hero 2: Data streams (Dark) ─────────────────────────────────
-function initExperienceHero() {
-  const canvas = document.getElementById('hero-canvas-experience');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let w, h;
-  let streams = [];
-
-  function resize() {
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-  }
-
-  function createStreams() {
-    const count = isMobile() ? 6 : 14;
-    streams = [];
-    for (let i = 0; i < count; i++) {
-      streams.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        speed: Math.random() * 0.6 + 0.2,
-        length: Math.random() * 100 + 50,
-        opacity: Math.random() * 0.1 + 0.02,
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-
-    for (const s of streams) {
-      const grad = ctx.createLinearGradient(s.x, s.y, s.x, s.y + s.length);
-      grad.addColorStop(0, `rgba(167, 139, 250, 0)`);
-      grad.addColorStop(0.5, `rgba(167, 139, 250, ${s.opacity})`);
-      grad.addColorStop(1, `rgba(167, 139, 250, 0)`);
-
-      ctx.beginPath();
-      ctx.moveTo(s.x, s.y);
-      ctx.lineTo(s.x, s.y + s.length);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      s.y += s.speed;
-      if (s.y > h + s.length) {
-        s.y = -s.length;
-        s.x = Math.random() * w;
-      }
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  resize();
-  createStreams();
-  draw();
-  window.addEventListener('resize', () => { resize(); createStreams(); });
-}
-
-
-// ════════════════════════════════════════════════════════════════
-// GSAP ELEMENT ANIMATIONS
-// ════════════════════════════════════════════════════════════════
-
-function initElementAnimations() {
-  // ── Landing reveals (always run, no scrollTrigger needed) ──
-  const landingEls = document.querySelectorAll(
-    '.landing__greeting, .landing__name, .landing__title, .landing__association, .btn--primary, .landing__meta, .landing__links, .landing__summary-card, #dyk-landing'
-  );
-
-  landingEls.forEach((el, i) => {
-    gsap.from(el, {
-      y: 24,
-      opacity: 0,
-      duration: 0.6,
-      delay: 0.12 + i * 0.07,
-      ease: 'power3.out',
-    });
-  });
-
-  // ── Scroll animations for all sections ──
-  initScrollAnimations();
-}
-
-
-function initScrollAnimations() {
-  // Theme change on scroll
-  const sections = [
-    { id: 'landing', theme: 'theme-light' },
-    { id: 'experience', theme: 'theme-dark' },
-    { id: 'lab', theme: 'theme-green' }
-  ];
-
-  sections.forEach((section, index) => {
-    const el = document.getElementById(section.id);
-    if (!el) return;
-
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 50%',
-      end: 'bottom 50%',
-      onEnter: () => {
-        document.body.className = '';
-        document.body.classList.add(section.theme);
-      },
-      onLeaveBack: () => {
-        if (index > 0) {
-          document.body.className = '';
-          document.body.classList.add(sections[index - 1].theme);
-        }
-      }
-    });
-  });
-
-  // Experience section
-  gsap.from('.section__heading', {
-    scrollTrigger: { trigger: '#experience', start: 'top 70%' },
-    y: 30, opacity: 0, duration: 0.7, ease: 'power3.out',
-  });
-
-  document.querySelectorAll('.timeline__item').forEach((item, i) => {
-    gsap.from(item, {
-      scrollTrigger: { trigger: item, start: 'top 80%' },
-      x: -30, opacity: 0, duration: 0.6, delay: i * 0.08, ease: 'power3.out',
-    });
-  });
-
-  gsap.from('#education', {
-    scrollTrigger: { trigger: '#education', start: 'top 80%' },
-    y: 24, opacity: 0, duration: 0.6, ease: 'power3.out',
-  });
-
-  document.querySelectorAll('.comp-card').forEach((card, i) => {
-    gsap.from(card, {
-      scrollTrigger: { trigger: card, start: 'top 85%' },
-      y: 24, opacity: 0, duration: 0.5, delay: i * 0.06, ease: 'power3.out',
-    });
-  });
-
-  document.querySelectorAll('.project-card').forEach((card, i) => {
-    gsap.from(card, {
-      scrollTrigger: { trigger: card, start: 'top 85%' },
-      y: 24, opacity: 0, duration: 0.5, delay: i * 0.08, ease: 'power3.out',
-    });
-  });
-
-  // Lab section
-  gsap.from('.section__heading--green', {
-    scrollTrigger: { trigger: '#lab', start: 'top 70%' },
-    y: 30, opacity: 0, duration: 0.7, ease: 'power3.out',
-  });
-
-}
-
-
-// ════════════════════════════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════════════════════════════
-
 document.addEventListener('DOMContentLoaded', () => {
-  initLandingHero();
-  initExperienceHero();
-  initElementAnimations();
+  // Reveal animation for sections
+  const elements = document.querySelectorAll('.reveal');
+
+  elements.forEach((el) => {
+    if (el.id === 'hero') {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.1 });
+    } else {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+  });
+
+  // Radar Chart for Skills
+  const radarCtx = document.getElementById('skillsRadarChart');
+  if (radarCtx) {
+    new Chart(radarCtx.getContext('2d'), {
+      type: 'radar',
+      data: {
+        labels: ['Quantitative Computing', 'Backend Engineering', 'Data Systems', 'Algorithms', 'Mathematical Modeling', 'Systems Architecture'],
+        datasets: [{
+          label: 'Proficiency',
+          data: [90, 85, 88, 75, 95, 80],
+          backgroundColor: 'rgba(98, 114, 220, 0.15)',
+          borderColor: 'rgba(98, 114, 220, 1)',
+          pointBackgroundColor: 'rgba(98, 114, 220, 1)',
+          pointBorderColor: '#fafafa',
+          pointHoverBackgroundColor: '#fafafa',
+          pointHoverBorderColor: 'rgba(98, 114, 220, 1)',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(0,0,0,0.06)' },
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            pointLabels: {
+              font: { family: 'JetBrains Mono', size: 11 },
+              color: '#525252'
+            },
+            ticks: { display: false, min: 0, max: 100 }
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        },
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart'
+        }
+      }
+    });
+  }
+
+  // Math.js & Chart.js Integration - Geometric Brownian Motion
+  // S_t = S_0 * exp((mu - sigma^2 / 2) * t + sigma * W_t)
+  const mathCtx = document.getElementById('mathChart');
+
+  if (mathCtx) {
+    const T = 1; // 1 year
+    const N = 252; // trading days
+    const dt = T / N;
+    const mu = 0.08; // 8% drift
+    const sigma = 0.2; // 20% volatility
+    const S0 = 100; // initial price
+
+    // Generate paths
+    const timeSteps = math.range(0, N + 1).toArray();
+    const numPaths = 3;
+    const datasets = [];
+    const colors = ['#6272dc', '#10b981', '#f59e0b'];
+
+    for (let i = 0; i < numPaths; i++) {
+      let S = [S0];
+      for (let t = 1; t <= N; t++) {
+        // Box-Muller transform for standard normal random variable
+        let u1 = math.random();
+        let u2 = math.random();
+        let z = math.sqrt(-2.0 * math.log(u1)) * math.cos(2.0 * math.PI * u2);
+
+        let prevS = S[t-1];
+        let dS = prevS * (mu * dt + sigma * math.sqrt(dt) * z);
+        S.push(prevS + dS);
+      }
+
+      datasets.push({
+        label: `Path ${i+1}`,
+        data: S,
+        borderColor: colors[i],
+        borderWidth: 1.5,
+        tension: 0.1,
+        pointRadius: 0
+      });
+    }
+
+    new Chart(mathCtx.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: timeSteps.map(t => (t/N).toFixed(2)),
+        datasets: datasets
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: 'index',
+          intersect: false,
+        },
+        scales: {
+          x: {
+            title: { display: true, text: 'Time (Years)', font: { family: 'JetBrains Mono', size: 11 } },
+            grid: { display: false, color: 'rgba(0,0,0,0.04)' },
+            ticks: { font: { family: 'JetBrains Mono', size: 10 }, color: '#525252' }
+          },
+          y: {
+            title: { display: true, text: 'Asset Price', font: { family: 'JetBrains Mono', size: 11 } },
+            grid: { color: 'rgba(0,0,0,0.04)' },
+            ticks: { font: { family: 'JetBrains Mono', size: 10 }, color: '#525252' }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: { font: { family: 'Geist', size: 11 }, usePointStyle: true, padding: 20 }
+          }
+        },
+        animation: {
+          duration: 1500,
+          easing: 'easeOutQuart'
+        }
+      }
+    });
+  }
 });
