@@ -606,8 +606,11 @@
       });
   }
 
+  // data-sort values are UI-facing; the normalized records use *_at fields.
+  var SORT_FIELDS = { pushed: "pushed_at", created: "created_at" };
+
   function applySort() {
-    var key = state.sort;
+    var key = SORT_FIELDS[state.sort] || "pushed_at";
     state.all.sort(function (a, b) {
       var av = a[key] || "";
       var bv = b[key] || "";
