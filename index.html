@@ -4,363 +4,273 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michael Tunwashe | Mathematics & Backend Engineering</title>
+  <title>Michael Tunwashe — Mathematics &amp; Backend Engineering</title>
   <meta name="description"
-    content="Michael Tunwashe - Mathematics Undergraduate | Quantitative Engineering | Backend & AI Systems. Based in Lagos, Nigeria." />
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="/logo.png">
+    content="Michael Tunwashe — Mathematics undergraduate building quantitative systems, production backends, and AI infrastructure. Lagos, Nigeria." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- NAV — N8 Terminal Command -->
-  <nav class="nav-terminal" role="navigation" aria-label="Main navigation">
-    <div class="nav-terminal__inner">
-      <span class="nav-terminal__prompt">></span>
-      <span class="nav-terminal__command">portfolio</span>
-      <span class="nav-terminal__cursor" aria-hidden="true"></span>
-      <div class="nav-terminal__flags">
-        <a href="#summary" class="nav-terminal__flag">--about</a>
-        <a href="#competencies" class="nav-terminal__flag">--skills</a>
-        <a href="#experience" class="nav-terminal__flag">--experience</a>
-        <a href="#projects" class="nav-terminal__flag">--projects</a>
-        <a href="#education" class="nav-terminal__flag">--education</a>
-        <a href="/resume.pdf" class="nav-terminal__flag" download>--resume</a>
-      </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+  <!-- Running head -->
+  <nav class="runner" aria-label="Section navigation">
+    <a href="#top" class="runner__id">M.&nbsp;Tunwashe</a>
+    <div class="runner__links">
+      <a href="#work"><span class="runner__sec">§1</span> Work</a>
+      <a href="#experience"><span class="runner__sec">§2</span> Experience</a>
+      <a href="#repertoire"><span class="runner__sec">§3</span> Repertoire</a>
+      <a href="#education"><span class="runner__sec">§4</span> Education</a>
+      <a href="#colophon"><span class="runner__sec">§5</span> Contact</a>
     </div>
+    <a class="runner__cv" href="resume.pdf" download>CV&nbsp;↓</a>
   </nav>
 
-  <main class="container">
+  <main id="top">
 
-    <!-- HERO — H4 Stat-Led -->
-    <header class="section reveal hero-stat" id="hero">
-      <p class="hero-stat__label">Michael Tunwashe</p>
-      <h1 class="hero-stat__value">Mathematics & Backend Engineering</h1>
-      <p class="hero-stat__qualifier">Quantitative systems, production backends, AI infrastructure. Building at the intersection of mathematical rigor and software engineering.</p>
-
-      <div class="hero-stat__secondary">
-        <div class="stat-pill">
-          <span class="stat-pill__value">6</span>
-          <span class="stat-pill__label">Core Competencies</span>
-        </div>
-        <div class="stat-pill">
-          <span class="stat-pill__value">3</span>
-          <span class="stat-pill__label">Production Systems</span>
-        </div>
-        <div class="stat-pill">
-          <span class="stat-pill__value">2+</span>
-          <span class="stat-pill__label">Years Building</span>
-        </div>
-        <div class="stat-pill">
-          <span class="stat-pill__value">1</span>
-          <span class="stat-pill__label">Focus</span>
-        </div>
+    <!-- ══ Masthead ══════════════════════════════════════════ -->
+    <header class="masthead">
+      <div class="masthead__meta reveal">
+        <span>University of Lagos · B.Sc. Mathematics</span>
+        <span class="masthead__meta-mid">Working Paper №&nbsp;01 · rev.&nbsp;3</span>
+        <span>Lagos, NG · 6.5244°&nbsp;N, 3.3792°&nbsp;E</span>
       </div>
 
-      <div class="hero-actions">
-        <a href="/resume.pdf" class="btn btn--primary" download>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Resume
-        </a>
-        <a href="mailto:motrenewed@gmail.com" class="btn btn--outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Contact
-        </a>
-        <a href="https://github.com/TADSTech" target="_blank" rel="noopener" class="btn btn--ghost">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
+      <h1 class="masthead__title reveal">Michael<br />Tunwashe</h1>
+      <p class="masthead__subtitle reveal"><em>Mathematics &amp; Backend Engineering</em></p>
+      <p class="masthead__byline reveal">
+        Quantitative systems, production backends, and AI infrastructure — built at the
+        intersection of mathematical rigor and software engineering.
+      </p>
+
+      <div class="actions reveal">
+        <a class="btn btn--solid" href="resume.pdf" download>Download CV</a>
+        <a class="btn" href="mailto:motrenewed@gmail.com">motrenewed@gmail.com</a>
+        <button class="btn btn--ghost" id="copyEmail" type="button" data-email="motrenewed@gmail.com">Copy</button>
+      </div>
+
+      <div class="abstract reveal">
+        <h2 class="abstract__label">Abstract.</h2>
+        <p class="abstract__body">
+          I am a mathematics undergraduate who builds production-grade software. My foundation is
+          Python, SQL, and Linux, extended into distributed systems, AI platforms, and financial
+          technology. I care about quantitative strategy, algorithmic systems, and applying
+          mathematical discipline to engineering that has to hold up in the real world.
+        </p>
       </div>
     </header>
 
-    <!-- SUMMARY -->
-    <section class="section reveal" id="summary">
-      <div class="section-head">
-        <span class="section-head__number">01</span>
-        <div class="section-head__content">
-          <h2 class="section-head__title">About</h2>
-          <div class="section-head__rule" aria-hidden="true"></div>
-        </div>
-      </div>
-      <p class="summary">
-        I am a Mathematics undergraduate deeply invested in building production-grade software, backend systems, and data-driven applications. My foundation is built on Python, SQL, Linux, and distributed systems, alongside extensive experience designing AI and financial technology platforms. I have a strong interest in quantitative strategy, algorithmic systems, and the application of mathematical rigor to real-world software engineering challenges.
-      </p>
-    </section>
+    <!-- ══ Random-walk divider ═══════════════════════════════ -->
+    <figure class="walk reveal">
+      <canvas id="walkCanvas" class="walk__canvas" role="img"
+        aria-label="A simulated Geometric Brownian Motion price path drawn across the page"></canvas>
+      <figcaption class="walk__cap">
+        <span class="walk__eq">
+          <span class="eq"><i>S</i><sub>t</sub> = <i>S</i><sub>0</sub> · exp<span class="eq__paren">(</span><span
+              class="eq__body">(μ − σ²⁄₂)·t + σ·<i>W</i><sub>t</sub></span><span class="eq__paren">)</span></span>
+        </span>
+        <span class="walk__note">Fig. 1 — Geometric Brownian Motion, μ&nbsp;=&nbsp;0.08, σ&nbsp;=&nbsp;0.20, drawn live in canvas.</span>
+      </figcaption>
+    </figure>
 
-    <!-- COMPETENCIES — Radar + GBM (E1 Clipped-Edge Demo) -->
-    <section class="section reveal" id="competencies">
-      <div class="section-head">
-        <span class="section-head__number">02</span>
-        <div class="section-head__content">
-          <h2 class="section-head__title">Technical Proficiency</h2>
-          <div class="section-head__rule" aria-hidden="true"></div>
-        </div>
-      </div>
+    <!-- ══ §1 Selected Work ══════════════════════════════════ -->
+    <section class="section" id="work">
+      <header class="section__head reveal">
+        <span class="section__num">§1</span>
+        <h2 class="section__title">Selected Work</h2>
+      </header>
 
-      <div class="competencies-grid">
-        <!-- Radar Chart -->
-        <div class="chart-wrapper">
-          <p class="chart-title chart-title--main">Competency Radar</p>
-          <p class="chart-desc">Self-assessed proficiency across six core domains. <code>chart.js</code> radar visualization.</p>
-          <div style="max-width: 100%; height: 300px;">
-            <canvas id="skillsRadarChart" aria-label="Radar chart showing proficiency across six domains"></canvas>
-          </div>
-        </div>
-
-        <!-- GBM Simulation — E1 Clipped-Edge Demo -->
-        <div class="chart-wrapper">
-          <p class="chart-title chart-title--main">Quantitative Modeling</p>
-          <p class="chart-desc">Geometric Brownian Motion: \( S_t = S_0 \exp((\mu - \sigma^2/2)t + \sigma W_t) \). Simulated with <code>mathjs</code>, rendered with <code>chart.js</code>.</p>
-          <div style="max-width: 100%; height: 300px;">
-            <canvas id="mathChart" aria-label="Line chart showing three simulated asset price paths using GBM"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="badges" role="list" aria-label="Technical skills">
-        <span class="badge" role="listitem">Python</span>
-        <span class="badge" role="listitem">NumPy</span>
-        <span class="badge" role="listitem">pandas</span>
-        <span class="badge" role="listitem">SciPy</span>
-        <span class="badge" role="listitem">Statistical Computing</span>
-        <span class="badge" role="listitem">Data Analysis</span>
-        <span class="badge" role="listitem">Backtesting</span>
-        <span class="badge" role="listitem">REST APIs</span>
-        <span class="badge" role="listitem">Git</span>
-        <span class="badge" role="listitem">Algorithms</span>
-        <span class="badge" role="listitem">Quantitative Finance</span>
-        <span class="badge" role="listitem">TypeScript</span>
-        <span class="badge" role="listitem">Bun</span>
-        <span class="badge" role="listitem">React</span>
-        <span class="badge" role="listitem">WebSockets</span>
-        <span class="badge" role="listitem">SQLAlchemy</span>
-        <span class="badge" role="listitem">PostgreSQL</span>
-        <span class="badge" role="listitem">FastAPI</span>
-        <span class="badge" role="listitem">Docker</span>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE — F3 Tabular Spec Sheet -->
-    <section class="section reveal" id="experience">
-      <div class="section-head">
-        <span class="section-head__number">03</span>
-        <div class="section-head__content">
-          <h2 class="section-head__title">Experience</h2>
-          <div class="section-head__rule" aria-hidden="true"></div>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <article class="experience-item">
-          <header class="item-header">
-            <div class="item-title-row">
-              <h3 class="item-role">Technical Lead <span class="item-company">LunixDV</span></h3>
-              <p class="item-desc">Software & AI systems development</p>
-            </div>
-            <div class="item-meta">
-              <time class="item-date" datetime="2026-04">Apr 2026 – Present</time>
-            </div>
-          </header>
-          <ul class="task-list">
-            <li>Lead development of software and AI systems, coordinating architecture, implementation, and technical decisions across projects.</li>
-            <li>Design backend architectures for production applications with emphasis on reliability, data integrity, and scalable execution.</li>
-            <li>Develop quantitative and data-driven components for AI and financial technology applications.</li>
+      <article class="entry reveal">
+        <div class="entry__index">1.1</div>
+        <div class="entry__body">
+          <h3 class="entry__title">Centaur <span class="entry__kind">Trading API &amp; Strategy Platform</span></h3>
+          <p class="entry__desc">An authenticated financial API with structured market-data access and
+            full ML model lifecycle management.</p>
+          <ul class="entry__notes">
+            <li>Strategy backtesting engine for evaluating systematic trading approaches.</li>
+            <li>Modular data and execution interfaces designed for quantitative experimentation.</li>
+            <li>Model registry with versioned promotion from research to production.</li>
           </ul>
-          <div class="badges item-badges">
-            <span class="badge">Python</span>
-            <span class="badge">AI Systems</span>
-            <span class="badge">Backend Architecture</span>
-            <span class="badge">Quantitative Engineering</span>
-          </div>
-        </article>
-
-        <article class="experience-item">
-          <header class="item-header">
-            <div class="item-title-row">
-              <h3 class="item-role">LLM Evaluator <span class="item-company">Turing</span></h3>
-              <p class="item-desc">Large language model output evaluation</p>
-            </div>
-            <div class="item-meta">
-              <time class="item-date" datetime="2025-12">Dec 2025 – Feb 2026</time>
-            </div>
-          </header>
-          <ul class="task-list">
-            <li>Evaluated large language model outputs against structured technical and reasoning criteria.</li>
-            <li>Performed systematic error analysis to identify failure patterns and assess model reliability.</li>
-            <li>Applied consistent analytical frameworks to large volumes of model outputs.</li>
+          <ul class="tags">
+            <li>Python</li><li>Financial APIs</li><li>Machine Learning</li><li>Backtesting</li>
           </ul>
-          <div class="badges item-badges">
-            <span class="badge">LLM Evaluation</span>
-            <span class="badge">Error Analysis</span>
-            <span class="badge">Technical Reasoning</span>
-          </div>
-        </article>
-
-        <article class="experience-item">
-          <header class="item-header">
-            <div class="item-title-row">
-              <h3 class="item-role">Data Analyst Intern <span class="item-company">HNG Tech</span></h3>
-              <p class="item-desc">Automated analytics & reporting workflows</p>
-            </div>
-            <div class="item-meta">
-              <time class="item-date" datetime="2025-08">Aug 2025 – Nov 2025</time>
-            </div>
-          </header>
-          <ul class="task-list">
-            <li>Automated recurring analytical and reporting workflows using Python and SQL.</li>
-            <li>Worked with structured datasets to improve reporting accuracy and data quality.</li>
-            <li>Developed dashboards and analytical outputs to support data-driven decision making.</li>
-          </ul>
-          <div class="badges item-badges">
-            <span class="badge">Python</span>
-            <span class="badge">SQL</span>
-            <span class="badge">Data Automation</span>
-            <span class="badge">Dashboarding</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJECTS — F3 Tabular Spec Sheet -->
-    <section class="section reveal" id="projects">
-      <div class="section-head">
-        <span class="section-head__number">04</span>
-        <div class="section-head__content">
-          <h2 class="section-head__title">Select Projects</h2>
-          <div class="section-head__rule" aria-hidden="true"></div>
         </div>
-      </div>
+        <div class="entry__meta"><time datetime="2026-02">Feb 2026 —</time></div>
+      </article>
 
-      <div class="timeline">
-        <article class="project-item">
-          <header class="item-header">
-            <div class="item-title-row">
-              <h3 class="item-role">Centaur <span class="item-company">Trading API & Strategy Platform</span></h3>
-              <p class="item-desc">Authenticated financial API with structured market-data access and ML model lifecycle management.</p>
-            </div>
-            <div class="item-meta">
-              <time class="item-date" datetime="2026-02">Feb 2026 – Present</time>
-            </div>
-          </header>
-          <ul class="task-list">
-            <li>Building an authenticated financial API with structured market-data access and ML model lifecycle management.</li>
-            <li>Developing a strategy backtesting engine for evaluating systematic trading approaches.</li>
-            <li>Designing modular data and execution interfaces for quantitative experimentation.</li>
+      <article class="entry reveal">
+        <div class="entry__index">1.2</div>
+        <div class="entry__body">
+          <h3 class="entry__title">WXATA <span class="entry__kind">WhatsApp Automation Platform</span></h3>
+          <p class="entry__desc">A high-throughput automation platform with a real-time operator dashboard.</p>
+          <ul class="entry__notes">
+            <li>WebSocket-driven communication with permission-controlled execution.</li>
+            <li>Backend services organised around concurrent event processing.</li>
+            <li>Reliable state management under sustained message volume.</li>
           </ul>
-          <div class="badges item-badges">
-            <span class="badge">Python</span>
-            <span class="badge">Financial APIs</span>
-            <span class="badge">Machine Learning</span>
-            <span class="badge">Backtesting</span>
-          </div>
-        </article>
-
-        <article class="project-item">
-          <header class="item-header">
-            <div class="item-title-row">
-              <h3 class="item-role">WXATA <span class="item-company">WhatsApp Automation Platform</span></h3>
-              <p class="item-desc">High-performance automation platform using Bun and TypeScript with a real-time React dashboard.</p>
-            </div>
-            <div class="item-meta">
-              <time class="item-date" datetime="2026-04">Apr 2026 – Present</time>
-            </div>
-          </header>
-          <ul class="task-list">
-            <li>Building a high-performance automation platform using Bun and TypeScript with a real-time React dashboard.</li>
-            <li>Implemented WebSocket-based communication and permission-controlled execution.</li>
-            <li>Designed backend services around concurrent event processing and reliable state management.</li>
+          <ul class="tags">
+            <li>Bun</li><li>TypeScript</li><li>React</li><li>WebSockets</li>
           </ul>
-          <div class="badges item-badges">
-            <span class="badge">Bun</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge">React</span>
-            <span class="badge">WebSockets</span>
-          </div>
-        </article>
-
-        <article class="project-item">
-          <header class="item-header">
-            <div class="item-title-row">
-              <h3 class="item-role">BRIS <span class="item-company">Retail Intelligence Platform</span></h3>
-              <p class="item-desc">End-to-end data platform with SQLAlchemy, PostgreSQL, FastAPI, and Docker.</p>
-            </div>
-            <div class="item-meta">
-              <time class="item-date" datetime="2025-10">Oct 2025 – Jan 2026</time>
-            </div>
-          </header>
-          <ul class="task-list">
-            <li>Built an end-to-end data platform with SQLAlchemy, PostgreSQL, FastAPI, and Docker.</li>
-            <li>Developed ETL pipelines for transforming and serving structured analytical data.</li>
-            <li>Implemented synthetic data generation and backend interfaces for reproducible analysis.</li>
-          </ul>
-          <div class="badges item-badges">
-            <span class="badge">SQLAlchemy</span>
-            <span class="badge">PostgreSQL</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">Docker</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section class="section reveal" id="education">
-      <div class="section-head">
-        <span class="section-head__number">05</span>
-        <div class="section-head__content">
-          <h2 class="section-head__title">Education</h2>
-          <div class="section-head__rule" aria-hidden="true"></div>
         </div>
-      </div>
+        <div class="entry__meta"><time datetime="2026-04">Apr 2026 —</time></div>
+      </article>
 
-      <article class="education-item">
-        <header class="education-header">
-          <div>
-            <h3 class="education-degree">B.Sc. Mathematics</h3>
-            <p class="education-school">University of Lagos</p>
-          </div>
-          <div class="education-meta">
-            <time class="item-date" datetime="2028">Expected 2028</time>
-          </div>
-        </header>
-        <p class="education-coursework"><strong>Relevant Coursework:</strong> Linear Algebra, Probability & Statistics, Differential Equations, Abstract Algebra</p>
+      <article class="entry reveal">
+        <div class="entry__index">1.3</div>
+        <div class="entry__body">
+          <h3 class="entry__title">BRIS <span class="entry__kind">Retail Intelligence Platform</span></h3>
+          <p class="entry__desc">An end-to-end data platform for structured retail analytics.</p>
+          <ul class="entry__notes">
+            <li>ETL pipelines for transforming and serving analytical datasets.</li>
+            <li>Synthetic data generation for reproducible analysis.</li>
+            <li>Backend interfaces exposing clean, queryable reporting surfaces.</li>
+          </ul>
+          <ul class="tags">
+            <li>SQLAlchemy</li><li>PostgreSQL</li><li>FastAPI</li><li>Docker</li>
+          </ul>
+        </div>
+        <div class="entry__meta"><time datetime="2025-10">Oct 2025 — Jan 2026</time></div>
       </article>
     </section>
 
-    <!-- FOOTER — Ft4 Dense Colophon -->
-    <footer class="footer-colophon reveal" role="contentinfo">
-      <div class="footer-colophon__line">
-        <span>&copy; <script>document.write(new Date().getFullYear())</script> Michael Tunwashe</span>
-        <span class="footer-colophon__sep">·</span>
-        <span>Lagos, Nigeria</span>
-        <span class="footer-colophon__sep">·</span>
-        <a href="mailto:motrenewed@gmail.com">motrenewed@gmail.com</a>
-        <span class="footer-colophon__sep">·</span>
-        <a href="https://github.com/TADSTech" target="_blank" rel="noopener">github.com/TADSTech</a>
-        <span class="footer-colophon__sep">·</span>
-        <a href="https://linkedin.com/in/Tadstech" target="_blank" rel="noopener">linkedin.com/in/Tadstech</a>
+    <!-- ══ §2 Experience ═════════════════════════════════════ -->
+    <section class="section" id="experience">
+      <header class="section__head reveal">
+        <span class="section__num">§2</span>
+        <h2 class="section__title">Experience</h2>
+      </header>
+
+      <ol class="ledger">
+        <li class="ledger__row reveal">
+          <div class="ledger__role">
+            <h3>Technical Lead</h3>
+            <span class="ledger__org">LunixDV</span>
+          </div>
+          <p class="ledger__desc">Software &amp; AI systems development — architecture, implementation,
+            and technical direction across projects.</p>
+          <div class="ledger__date"><time datetime="2026-04">Apr 2026 — present</time></div>
+        </li>
+        <li class="ledger__row reveal">
+          <div class="ledger__role">
+            <h3>LLM Evaluator</h3>
+            <span class="ledger__org">Turing</span>
+          </div>
+          <p class="ledger__desc">Evaluated large language model outputs against structured technical and
+            reasoning criteria; systematic error analysis to surface failure patterns.</p>
+          <div class="ledger__date"><time datetime="2025-12">Dec 2025 — Feb 2026</time></div>
+        </li>
+        <li class="ledger__row reveal">
+          <div class="ledger__role">
+            <h3>Data Analyst Intern</h3>
+            <span class="ledger__org">HNG Tech</span>
+          </div>
+          <p class="ledger__desc">Automated recurring analytical and reporting workflows in Python and SQL;
+            built dashboards to support data-driven decisions.</p>
+          <div class="ledger__date"><time datetime="2025-08">Aug 2025 — Nov 2025</time></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ══ §3 Repertoire ═════════════════════════════════════ -->
+    <section class="section" id="repertoire">
+      <header class="section__head reveal">
+        <span class="section__num">§3</span>
+        <h2 class="section__title">Technical Repertoire</h2>
+      </header>
+
+      <div class="repertoire">
+        <div class="repertoire__group reveal">
+          <h3 class="repertoire__label">Quantitative &amp; Scientific</h3>
+          <ul class="repertoire__list">
+            <li>Python</li><li>NumPy</li><li>pandas</li><li>SciPy</li>
+            <li>Statistical Computing</li><li>Backtesting</li>
+          </ul>
+        </div>
+        <div class="repertoire__group reveal">
+          <h3 class="repertoire__label">Data &amp; Storage</h3>
+          <ul class="repertoire__list">
+            <li>SQL</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>ETL</li><li>Dashboards</li>
+          </ul>
+        </div>
+        <div class="repertoire__group reveal">
+          <h3 class="repertoire__label">Backend &amp; Systems</h3>
+          <ul class="repertoire__list">
+            <li>FastAPI</li><li>REST APIs</li><li>WebSockets</li><li>Docker</li><li>Linux</li>
+          </ul>
+        </div>
+        <div class="repertoire__group reveal">
+          <h3 class="repertoire__label">Application &amp; Tooling</h3>
+          <ul class="repertoire__list">
+            <li>TypeScript</li><li>React</li><li>Bun</li><li>Git</li><li>Algorithms</li>
+          </ul>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- ══ §4 Education ══════════════════════════════════════ -->
+    <section class="section" id="education">
+      <header class="section__head reveal">
+        <span class="section__num">§4</span>
+        <h2 class="section__title">Education</h2>
+      </header>
+
+      <div class="degree reveal">
+        <div class="degree__head">
+          <h3 class="degree__title">B.Sc. Mathematics</h3>
+          <span class="degree__school">University of Lagos</span>
+          <span class="degree__date"><time datetime="2028">Expected 2028</time></span>
+        </div>
+        <p class="degree__coursework">
+          <span class="degree__coursework-label">Relevant coursework —</span>
+          Linear Algebra · Probability &amp; Statistics · Differential Equations · Abstract Algebra
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ §5 Colophon / Contact ═════════════════════════════ -->
+    <section class="section section--last" id="colophon">
+      <header class="section__head reveal">
+        <span class="section__num">§5</span>
+        <h2 class="section__title">Correspondence</h2>
+      </header>
+
+      <div class="correspondence reveal">
+        <p class="correspondence__lede">
+          Open to quantitative engineering, backend, and research-adjacent work. The fastest route is email.
+        </p>
+        <ul class="correspondence__list">
+          <li><span class="correspondence__key">Email</span><a href="mailto:motrenewed@gmail.com">motrenewed@gmail.com</a></li>
+          <li><span class="correspondence__key">GitHub</span><a href="https://github.com/TADSTech" target="_blank" rel="noopener">github.com/TADSTech</a></li>
+          <li><span class="correspondence__key">LinkedIn</span><a href="https://linkedin.com/in/Tadstech" target="_blank" rel="noopener">linkedin.com/in/Tadstech</a></li>
+          <li><span class="correspondence__key">X</span><a href="https://x.com/TADSTech" target="_blank" rel="noopener">@TADSTech</a></li>
+        </ul>
+      </div>
+    </section>
 
   </main>
 
-  <script type="module" src="/main.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ],
-        throwOnError: false
-      });
-    });
-  </script>
+  <footer class="colophon">
+    <div class="colophon__rule"></div>
+    <p class="colophon__line">
+      <span>© <span id="year">2026</span> Michael Tunwashe</span>
+      <span class="colophon__sep">·</span>
+      <span>Lagos, Nigeria</span>
+      <span class="colophon__sep">·</span>
+      <span>Set in Newsreader &amp; IBM Plex Mono</span>
+      <span class="colophon__sep">·</span>
+      <a href="#top">Back to top ↑</a>
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 
 </html>

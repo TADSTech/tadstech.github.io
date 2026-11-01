@@ -1,24 +1,3 @@
-# Dependencies
-node_modules/
-
-# Build output
-portfolio/dist/
-portfolio/dist-ssr/
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
-
-# Lock files (Bun)
-# bun.lock is committed for reproducibility
-
-# Environment
-*.local
-.env
-.env.*
-
 # OS
 .DS_Store
 Thumbs.db
@@ -28,16 +7,8 @@ Desktop.ini
 .vscode/*
 !.vscode/extensions.json
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
 
-# Typst
-*.typ
-*.sql
-
-# Separate repository projects
-link-tree/
-
+# Local / scratch
+*.local
+*.log

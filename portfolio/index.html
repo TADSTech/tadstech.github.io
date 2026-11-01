@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repository Index — Michael Tunwashe</title>
+  <meta name="description"
+    content="A live index of Michael Tunwashe's public GitHub repositories — descriptions and READMEs fetched from the GitHub REST API." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="portfolio.css" />
+</head>
+
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+  <!-- Running head -->
+  <nav class="runner" aria-label="Section navigation">
+    <a href="../index.html" class="runner__id">M.&nbsp;Tunwashe</a>
+    <div class="runner__links">
+      <a href="../index.html#work"><span class="runner__sec">§1</span> Work</a>
+      <a href="../index.html#experience"><span class="runner__sec">§2</span> Experience</a>
+      <a href="../index.html#repertoire"><span class="runner__sec">§3</span> Repertoire</a>
+      <a href="index.html" aria-current="page"><span class="runner__sec">§P</span> Repos</a>
+      <a href="../index.html#colophon"><span class="runner__sec">§5</span> Contact</a>
+    </div>
+    <a class="runner__cv" href="../resume.pdf" download>CV&nbsp;↓</a>
+  </nav>
+
+  <main>
+
+    <!-- ══ Masthead ══════════════════════════════════════════ -->
+    <header class="phead">
+      <div class="phead__meta reveal">
+        <span>Live index · GitHub REST v3</span>
+        <span class="phead__meta-mid">GET&nbsp;/users/TADSTech/repos</span>
+        <span id="pheadStamp">awaiting&nbsp;request…</span>
+      </div>
+
+      <h1 class="phead__title reveal">Repository<br />Index</h1>
+      <p class="phead__sub reveal">
+        Public repositories pulled live from the GitHub API — description and README rendered
+        client-side, three at a time, twelve at most. Every stage below reports what it actually did.
+      </p>
+
+      <noscript>
+        <p class="noscript">
+          This index is assembled in the browser from the GitHub API, so it needs JavaScript.
+          The repositories are also at
+          <a href="https://github.com/TADSTech?tab=repositories" target="_blank" rel="noopener">github.com/TADSTech</a>.
+        </p>
+      </noscript>
+    </header>
+
+    <!-- ══ Pipeline ══════════════════════════════════════════ -->
+    <section class="panel reveal" aria-labelledby="pipelineTitle">
+      <div class="panel__head">
+        <h2 class="panel__title" id="pipelineTitle">Pipeline</h2>
+        <p class="panel__hint">stages illuminate as they run</p>
+      </div>
+      <ol class="pipeline" id="pipeline">
+        <li class="stage" data-stage="fetch">
+          <span class="stage__n">01</span>
+          <span class="stage__k">fetch</span>
+          <span class="stage__v">idle</span>
+        </li>
+        <li class="stage" data-stage="normalize">
+          <span class="stage__n">02</span>
+          <span class="stage__k">normalize</span>
+          <span class="stage__v">idle</span>
+        </li>
+        <li class="stage" data-stage="readme">
+          <span class="stage__n">03</span>
+          <span class="stage__k">readme ×3</span>
+          <span class="stage__v">idle</span>
+        </li>
+        <li class="stage" data-stage="parse">
+          <span class="stage__n">04</span>
+          <span class="stage__k">markdown</span>
+          <span class="stage__v">idle</span>
+        </li>
+        <li class="stage" data-stage="render">
+          <span class="stage__n">05</span>
+          <span class="stage__k">render</span>
+          <span class="stage__v">idle</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ══ Telemetry ═════════════════════════════════════════ -->
+    <section class="panel reveal" aria-labelledby="telemetryTitle">
+      <div class="panel__head">
+        <h2 class="panel__title" id="telemetryTitle">Telemetry</h2>
+        <p class="panel__hint">read straight off the wire</p>
+      </div>
+      <dl class="telemetry" id="telemetry">
+        <div class="tele"><dt>requests</dt><dd id="tReq">0</dd></div>
+        <div class="tele"><dt>latency</dt><dd id="tLat">—</dd></div>
+        <div class="tele"><dt>cache</dt><dd id="tCache">cold</dd></div>
+        <div class="tele"><dt>rate limit</dt><dd id="tRate">—</dd></div>
+        <div class="tele"><dt>shown</dt><dd id="tShown">0 / 12</dd></div>
+        <div class="tele"><dt>batch</dt><dd id="tBatch">0 / 4</dd></div>
+      </dl>
+    </section>
+
+    <!-- ══ Controls ══════════════════════════════════════════ -->
+    <div class="controls reveal">
+      <div class="segmented" role="group" aria-label="Sort order">
+        <button type="button" class="seg is-active" data-sort="pushed" aria-pressed="true">latest updated</button>
+        <button type="button" class="seg" data-sort="created" aria-pressed="false">newest</button>
+      </div>
+      <button type="button" class="btn btn--ghost" id="refresh">↻ refresh</button>
+    </div>
+
+    <!-- ══ Repository log ════════════════════════════════════ -->
+    <section class="section" id="repos">
+      <header class="section__head reveal">
+        <span class="section__num">§P</span>
+        <h2 class="section__title">Public Repositories</h2>
+      </header>
+
+      <div class="log" id="repoList"></div>
+
+      <div class="more">
+        <button type="button" class="btn btn--solid" id="loadMore" hidden>Load 3 more</button>
+        <p class="more__status" id="loadStatus" role="status">Contacting the GitHub API…</p>
+      </div>
+
+      <p class="error" id="errorBox" hidden></p>
+    </section>
+
+  </main>
+
+  <footer class="colophon">
+    <div class="colophon__rule"></div>
+    <p class="colophon__line">
+      <span>© <span id="year">2026</span> Michael Tunwashe</span>
+      <span class="colophon__sep">·</span>
+      <span>Source: api.github.com</span>
+      <span class="colophon__sep">·</span>
+      <span>1 request + 3 per batch, 12 max</span>
+      <span class="colophon__sep">·</span>
+      <a href="../index.html">← back to index</a>
+    </p>
+  </footer>
+
+  <script src="../main.js"></script>
+  <script src="portfolio.js"></script>
+</body>
+
+</html>
